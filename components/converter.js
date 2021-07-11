@@ -1,4 +1,16 @@
+/**
+ * Convert values to another formats
+ * 
+ * @return Object
+ */
 module.exports = {
+
+	/** 
+	 * Used to convert numbers to another base
+	 * @example toBase(15, 16) // hexadecimal base
+	 * 
+	 * @return Array
+	 */
 	toBase(number, base) {
 			let results = [];
 			for(let i = number; i > 0; i=parseInt(i / base)) {
@@ -7,6 +19,13 @@ module.exports = {
 
 			return results;
 	},
+	
+	/**
+	 * Convert number to hexadecimal
+	 * @example toHex(15) // output: F
+	 * @param {int} number 
+	 * @returns 
+	 */
 	toHex(number){
 		const hexLetters = [
 			{
@@ -41,6 +60,13 @@ module.exports = {
 
 		return divisions.reverse().join("");
 	},
+
+	/**
+	 * Convert number to octal(n __ 8)
+	 * 
+	 * @param {int} number 
+	 * @returns 
+	 */
 	toOctal(number){
 		return this.toBase(number, 8).reverse().join("");
 	}

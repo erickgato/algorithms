@@ -1,5 +1,11 @@
 const prompt = require('prompt');
 
+/**
+ * Provides many questions chained
+ * 
+ * @param {int} size
+ * @return Array
+ */
 module.exports = async (size) => {
 	prompt.start();
 	const out = [];
