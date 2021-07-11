@@ -7,6 +7,10 @@ const prompt = require("prompt");
  * @param {Function} innerApp 
  */
 module.exports = function (innerApp) {
+
+	/**
+	 * Make prompt possible
+	 */
 	prompt.start();
 	
 	/**
@@ -14,8 +18,16 @@ module.exports = function (innerApp) {
 	 * @param  {...any} logs 
 	 * @returns
 	 */
-	const resultHandler = (...logs) => console.log(...logs);
+	const resultHandler = (logs) => logs.map(logLine => console.log(...logLine));
 	
+	/**
+	 * Console error wrapper
+	 * 
+	 * @param  {...any} logs 
+	 * @returns 
+	 */
+	const errorHandler = (...logs) => console.error(...logs);
+
 	/**
 	 * Convert prompt question to promised question
 	 * 
@@ -33,5 +45,5 @@ module.exports = function (innerApp) {
 	arrayProps();
 
 
-	innerApp({ resultHandler, question });
+	innerApp({ resultHandler, question, errorHandler });
 }
