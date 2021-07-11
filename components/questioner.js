@@ -14,7 +14,7 @@ module.exports = async (size) => {
 			return new Promise((resolve, reject) => {
 				prompt.get('num', async (err, result) => {
 						const {  num  } = result;
-						out.push(parseInt(num));
+						out.push(Number(num));
 						if(out.length < size) { 
 							await next();
 						}
